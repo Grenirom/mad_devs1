@@ -1,15 +1,17 @@
-from tests.test_core.test_base_class import PatientTest
+from tests.test_core.test_base_class import BaseTest
 
 
-class LoginAPITest(PatientTest):
+class LoginAPITest(BaseTest):
     def test_successful_login(self):
         required_fields_in_data = {'refresh', 'access'}
-        response = self.client.post(self.login_url, data=self.login_existing_data)
+        successful_login_data = {'username': self.default_user.username, 'password': 'password123'}
+        response = self.client.post(self.login_url, data=successful_login_data)
         self.assertEqual(response.status_code, 200)
         self.assertTrue(required_fields_in_data.issubset(response.data.keys()))
 
     def test_login_fail(self):
-        response = self.client.post(self.login_url, data=self.login_invalid_data)
+        invalid_login_data = {'username': 'invalid_data', 'password': 'invalid_data'}
+        response = self.client.post(self.login_url, data=invalid_login_data)
         self.assertEqual(response.status_code, 401)
 
     def test_login_empty_fields(self):
