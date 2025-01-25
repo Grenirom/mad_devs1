@@ -9,6 +9,10 @@ class User(AbstractUser):
     )
     role = models.CharField(max_length=20, choices=ROLES)
 
+    def save(self, *args, **kwargs):    # using save method to hash password when adding a user via the admin panel
+        if self.pk is None or not self.password.startswith('pbkdf2_'): # checking if the user is new, and password is not hashed already
+            self.set_password(self.password)
+        super().save(*args, **kwargs)
 
 class Patient(models.Model):
     date_of_birth = models.DateField()
