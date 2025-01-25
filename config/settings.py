@@ -28,7 +28,8 @@ ADDITIONAL_APPS = [
 ]
 
 OWN_APPS = [
-    'patients'
+    'src.patients',
+    'src.users'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + ADDITIONAL_APPS + OWN_APPS
@@ -111,4 +112,9 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=2)
 }
 
-AUTH_USER_MODEL = 'patients.User'
+AUTH_USER_MODEL = 'users.User'
+
+MIGRATION_MODULES = {
+    'users': 'migrations.users_migrations',
+    'patients': 'migrations.patients_migrations',
+}

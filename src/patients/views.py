@@ -1,10 +1,11 @@
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 from rest_framework import generics, permissions
 
-from patients.models import Patient
-from patients.permissions import IsDoctor
-from patients.serializers import PatientSerializer
+from src.generals.permissions import IsDoctor
+
+from src.patients.models import Patient
+from src.patients.serializers import PatientSerializer
 
 
 class LoginView(TokenObtainPairView):

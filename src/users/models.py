@@ -1,6 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import AbstractUser
-
+from django.db import models
 
 class User(AbstractUser):
     ROLES = (
@@ -13,9 +12,3 @@ class User(AbstractUser):
         if not self.pk and not self.password.startswith('pbkdf2_'): # checking if the user is new, and password is not hashed already
             self.set_password(self.password)
         super().save(*args, **kwargs)
-
-class Patient(models.Model):
-    date_of_birth = models.DateField()
-    diagnoses = models.JSONField()
-    created_at = models.DateTimeField(auto_now_add=True)
-
