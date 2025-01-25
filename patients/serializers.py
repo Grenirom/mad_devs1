@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from task1.patients.models import Patient
+from patients.models import Patient
 
 
 class PatientSerializer(serializers.ModelSerializer):
