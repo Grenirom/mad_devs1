@@ -9,6 +9,7 @@ DEFAULT_ADMIN_PASSWORD = config("DEFAULT_ADMIN_PASSWORD")
 
 
 class Command(BaseCommand):
+    """class for creating default admin user"""
     def handle(self, *args, **options):
         user = get_user_model()
         if not user.objects.filter(username=DEFAULT_ADMIN_USERNAME).first():
