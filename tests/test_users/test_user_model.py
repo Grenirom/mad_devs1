@@ -16,7 +16,6 @@ class UserModelTest(BaseTest):
     def test_password_not_rehashed_on_update(self):
         user = self.default_user
         old_password_hash = user.password
-        # Updating the username without changing the password
         user.username = 'new_username'
         user.save()
         print(user.password)
@@ -29,14 +28,14 @@ class UserModelTest(BaseTest):
             user.full_clean()    # Запускает проверку поля role на соответствие choices
 
     def test_duplicate_username(self):
-        """Test that creating a user with a duplicate username raises an IntegrityError."""
+        """проверяет вызовется лли IntegrityError если продублировать username"""
         user_data = UserFactory.generate_user_data()
         User.objects.create(**user_data)
         with self.assertRaises(IntegrityError):
             User.objects.create(**user_data)
 
     def test_superuser_creation(self):
-        """Test that creating a superuser sets the correct flags."""
+        """Проверяет что при создании суперюзера поля is_staff is_superuser выставляются правильно"""
         superuser = User.objects.create_superuser(username='admin', password='admin_password', role='user')
         self.assertTrue(superuser.is_superuser)
         self.assertTrue(superuser.is_staff)
