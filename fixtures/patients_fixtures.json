@@ -1,0 +1,92 @@
+[
+    {
+        "model": "patients.patient",
+        "pk": 1,
+        "fields": {
+            "date_of_birth": "1980-01-15",
+            "diagnoses": ["Hypertension", "Diabetes"],
+            "created_at": "2025-01-01T10:00:00Z"
+        }
+    },
+    {
+        "model": "patients.patient",
+        "pk": 2,
+        "fields": {
+            "date_of_birth": "1992-03-22",
+            "diagnoses": ["Asthma"],
+            "created_at": "2025-01-02T11:15:00Z"
+        }
+    },
+    {
+        "model": "patients.patient",
+        "pk": 3,
+        "fields": {
+            "date_of_birth": "1975-07-30",
+            "diagnoses": ["Cardiovascular Disease"],
+            "created_at": "2025-01-03T08:45:00Z"
+        }
+    },
+    {
+        "model": "patients.patient",
+        "pk": 4,
+        "fields": {
+            "date_of_birth": "1988-09-12",
+            "diagnoses": [],
+            "created_at": "2025-01-04T14:00:00Z"
+        }
+    },
+    {
+        "model": "patients.patient",
+        "pk": 5,
+        "fields": {
+            "date_of_birth": "2000-06-10",
+            "diagnoses": ["Migraine"],
+            "created_at": "2025-01-05T16:20:00Z"
+        }
+    },
+    {
+        "model": "patients.patient",
+        "pk": 6,
+        "fields": {
+            "date_of_birth": "1995-12-25",
+            "diagnoses": ["Diabetes", "Obesity"],
+            "created_at": "2025-01-06T09:30:00Z"
+        }
+    },
+    {
+        "model": "patients.patient",
+        "pk": 7,
+        "fields": {
+            "date_of_birth": "1983-04-18",
+            "diagnoses": ["Hypertension"],
+            "created_at": "2025-01-07T18:45:00Z"
+        }
+    },
+    {
+        "model": "patients.patient",
+        "pk": 8,
+        "fields": {
+            "date_of_birth": "1990-11-05",
+            "diagnoses": [],
+            "created_at": "2025-01-08T20:00:00Z"
+        }
+    },
+    {
+        "model": "patients.patient",
+        "pk": 9,
+        "fields": {
+            "date_of_birth": "1979-02-14",
+            "diagnoses": ["Arthritis"],
+            "created_at": "2025-01-09T07:15:00Z"
+        }
+    },
+    {
+        "model": "patients.patient",
+        "pk": 10,
+        "fields": {
+            "date_of_birth": "2002-08-03",
+            "diagnoses": ["Anemia"],
+            "created_at": "2025-01-10T12:00:00Z"
+        }
+    }
+]
