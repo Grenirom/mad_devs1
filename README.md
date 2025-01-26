@@ -18,9 +18,10 @@
 1) **git clone <https-link>** - склонируйте проект
 2) **touch .env** - в корневой директории создайте файл .env для переменных окружения, и заполните его в соответствии с .env.example
 3) **createdb maddevs_task1** - создайте базу данных для проекта
-4) **docker-compose up -d** - запустите контейнеры
-5) **docker-compose exec -it task1-web-1 bash** - войдите в оболочку контейнера web
-6) **./manage.py createsuperuser** - создайте суперюзера, для доступа в админ панель (требуемые поля для заполнения: username, password)
-7) **./manage.py collectstatic** - соберите все статические файлы в директорию static/
-8) **./manage.py test** - запустите все тесты проекта
-9) **exit** - команда для выхода из оболочки
+4) **Настройте POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB в docker-compose.yml(контейнер db) под свои данные пользователя бд**
+5) **docker-compose up --build** - запустите cборку контейнеров
+6) **docker-compose exec -it mad_devs1-web-1 bash** - войдите в оболочку контейнера web
+7) **./manage.py createsuperuser** - создайте суперюзера, для доступа в админ панель (требуемые поля для заполнения: username, password)
+8) **./manage.py collectstatic** - соберите все статические файлы в директорию static/
+9) **./manage.py test** - запустите все тесты проекта
+10) **exit** - команда для выхода из оболочки
