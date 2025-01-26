@@ -1,35 +1,30 @@
+version: '3.8'
+
 services:
-
-#  postgresql container
-  db:
-    image: postgres:latest
-    environment:
-      POSTGRES_USER: nikitagrebnev
-      POSTGRES_PASSWORD: 1
-      POSTGRES_DB: maddevs_task1
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - app_network
-
-# django-app container
   web:
-    build: .
-    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    build: 
+      context: ./
+      dockerfile: ./docker/Dockerfile
+
+    command:  sh -c "
+                    chmod +x docker/entrypoint.sh &&
+                    sh docker/entrypoint.sh"
+
     volumes:
-      - .:/app
+      - ./:/usr/src/app/
     ports:
-      - "8000:8000"
+      - 8000:8000
+    env_file:
+      - .env
     depends_on:
       - db
-    networks:
-      - app_network
+  db:
+    image: postgres:latest
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env.db
 
-# share code between host and container
+
 volumes:
   postgres_data:
-
-# enables communication between containers (web, db)
-networks:
-  app_network:
-    driver: bridge
